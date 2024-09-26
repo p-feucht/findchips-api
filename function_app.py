@@ -28,8 +28,8 @@ def findchips_search(req: func.HttpRequest) -> func.HttpResponse:
         with open(filename, "w", encoding="utf-8") as file:
             for result in results:
                 file.write(str(result.contents[3]))
-        file.close()
-        return func.HttpResponse(file)
+            file.close()
+            return func.HttpResponse(file.read())
     else:
         return func.HttpResponse(
              "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response.",
