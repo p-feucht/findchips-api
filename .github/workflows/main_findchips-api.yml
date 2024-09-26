@@ -70,6 +70,6 @@ jobs:
           app-name: 'findchips-api'
           slot-name: 'Production'
           package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_63DFAA2B54B145A09D284572A5526EB6 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_FF9AFEBE9A324DB59081D20BFF1DF0AD }}
           scm-do-build-during-deployment: true
           enable-oryx-build: true
