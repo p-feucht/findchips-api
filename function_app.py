@@ -24,12 +24,15 @@ def findchips_search(req: func.HttpRequest) -> func.HttpResponse:
         html = page.read().decode("utf-8")
         soup = BeautifulSoup(html, "html.parser")
         results = soup.find_all(class_='distributor-results')
-        filename = "chip.html"
-        with open(filename, "w", encoding="utf-8") as file:
-            for result in results:
-                file.write(str(result.contents[3]))
-            file.close()
-            return func.HttpResponse(file.read())
+        html_output = ""
+        for result in results:
+            html_output += str(result.contents[3])
+        # filename = "chip.html"
+        # with open(filename, "w", encoding="utf-8") as file:
+        #     for result in results:
+        #         file.write(str(result.contents[3]))
+        #     file.close()
+        return func.HttpResponse(html_output)
     else:
         return func.HttpResponse(
              "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response.",
